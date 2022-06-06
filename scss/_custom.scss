@@ -1,0 +1,105 @@
+@import 'repeating.scss';
+
+body{
+    background-color: $white;
+    font-family: TTNorms;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    letter-spacing: normal;
+    line-height: normal;
+}
+h1,h2,h3,h4{
+    color: $black;
+    @include indents_vertical(1.2vw, margin);
+}
+h1{
+    font-size: 2.2vw;
+}
+h2{
+    font-size: 2vw;
+}
+h3{
+    font-size: 1.5vw;
+}
+h4{
+    font-size: 1.2vw;
+}
+p,li{
+    font-size: 1vw;
+    line-height: 1.5vw;
+    color: $black_two;
+    @include indents_vertical(1.2vw, margin);
+}
+span{
+    font-size: .9vw;
+}
+
+.none{
+    display: none;
+}
+.mob{
+    display: none!important;
+}
+
+@media screen and(max-width:768px){
+    .mob{
+        display: block!important;
+    }
+    .desc{
+        display: none!important;
+    }
+    h1,h2,h3,h4{
+        color: $black;
+        @include indents_vertical(2.2vw, margin);
+    }
+    h1{
+        font-size: 3.7vw;
+    }
+    h2{
+        font-size: 3.5vw;
+    }
+    h3{
+        font-size: 3vw;
+    }
+    h4{
+        font-size: 2.7vw;
+    }
+    p,li{
+        font-size: 2.5vw;
+        line-height: 3.5vw;
+        color: $black_two;
+        @include indents_vertical(1.5vw, margin);
+    }
+    span{
+        font-size: 1.9vw;
+    }
+}
+
+@media screen and(max-width:576px){
+    h1,h2,h3,h4{
+        color: $black;
+        @include indents_vertical(2.2vw, margin);
+    }
+    h1{
+        font-size: 8vw;
+    }
+    h2{
+        font-size: 7vw;
+    }
+    h3{
+        font-size: 6vw;
+    }
+    h4{
+        font-size: 4.8vw;
+    }
+    p,li{
+        font-size: 4vw;
+        line-height: 5.5vw;
+        color: $black_two;
+        @include indents_vertical(2.5vw, margin);
+    }
+    span{
+        font-size: 3.5vw;
+    }
+}

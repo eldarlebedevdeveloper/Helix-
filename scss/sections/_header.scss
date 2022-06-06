@@ -1,0 +1,152 @@
+@import '../repeating.scss';
+.header{
+    box-shadow: 0.1vw 0vw 0.2vw -0.1vw #000000;
+    &_announcement-bar{
+        @include flex($horizontal: center); 
+        @include indents_vertical(.5vw);
+        background-color: $blue_two;
+        & span{
+            margin: 0;
+            color: $white;
+
+            & a{
+                margin-left: 0.5vw;
+                font-weight: bold;
+                text-decoration: underline;
+            }
+        }
+    }
+}
+.navigation {
+    @include indents-horizontal;
+    @include indents_vertical(1vw);
+    @include flex; 
+    background-color: $white;
+    &_logo{
+        flex: 1;
+        & img{
+            width: 5vw;
+        }
+    }
+    &_menu ul{
+        @include flex; 
+        & li{
+            @include indents_vertical(0, margin);
+            margin-right: 2vw;
+        }
+    }
+    
+    &_cart{
+        @include flex($horizontal: center, $vertical: center);
+        & img{
+            width: 2vw;
+        }
+    }
+}
+
+@media screen and(max-width:768px){
+    .header{
+        &_announcement-bar{
+            @include indents_vertical(1.5vw);
+        }
+    }
+    .navigation {
+        @include indents_horizontal(5vw);
+        @include indents_vertical(3vw);
+        .nav-show{
+            left: 0;
+        }
+        .nav-hidden{
+            left: -100vw;
+        }
+        &_logo{
+            order: 2;
+            text-align: center;
+            & img{
+                width: 15vw;
+            }
+        }
+        & .menu-icon{
+            width: 5vw;
+            cursor: pointer;
+        }
+        &_cart{
+            order: 3;
+            & img{
+                width: 5vw;
+            }
+        }
+        &_menu {
+            position: fixed;
+            z-index: 100;
+            height: 100vh;
+            width: 100vw;
+            top: 0;
+            left: -100vw;
+            background-color: $blue_tree;
+            transition: 1s;
+            & .navigation-close{
+                content: "";
+                width: 5vw;
+                height: 5vw;
+                display: block;
+                background-image: url(../img/close.svg);
+                background-repeat: no-repeat;
+                position: absolute;
+                top: 2vw;
+                left: 2vw;
+                cursor: pointer;
+            }
+            & ul{
+                @include flex(center,center,column); 
+                height: 100%;
+                & li{
+                    @include indents_vertical(2vw, margin);
+                    margin-right: 0;
+                    font-weight: 600;
+                    color: $white;
+                    & span{
+                        font-size: 3.5vw;
+                    }
+                }
+            }
+        } 
+    }
+}
+
+@media screen and(max-width:576px){
+    .header{
+        &_announcement-bar{
+            @include indents_vertical(2.5vw);
+        }
+    }
+    .navigation {
+        @include indents_horizontal(6vw);
+        @include indents_vertical(4vw);
+        &_logo{
+            & img{
+                width: 21vw;
+            }
+        }
+        & .menu-icon{
+            width: 6vw;
+        }
+        &_cart{
+            order: 3;
+            & img{
+                width: 6vw;
+            }
+        }
+        &_menu{
+            & .navigation-close{
+                width: 6vw;
+                height: 6vw;
+                left: 5vw;
+                top: 5vw;
+            }
+            & ul li span{
+                font-size: 5vw;
+            }
+        }
+    }
+}

@@ -1,0 +1,140 @@
+@import '../repeating.scss';
+.section-with-tabs{
+    @include flex(center, center, column);
+    @include indents_vertical;
+    background-color: $white_two;
+    @include title;
+    @include subtitle;
+    &_container{
+
+        &_links{
+            @include flex(center);
+            @include indents_horizontal;
+            & li{
+                @include indents_horizontal(2vw, margin);
+                margin-bottom: 0.8vw;
+                color: $greey;
+                & h4{
+                    color: inherit;
+                    font-weight: 500;
+                }
+                &.ui-state-active{
+                    color: $blue;
+                }
+            }
+        }
+        & .tabs{
+            @include flex;
+            @include indents_horizontal(18vw, margin);
+            @include indents_horizontal(4vw);
+            @include indents_vertical;
+            background-color: $white;
+            box-shadow: $main_shadow;
+            &_item{
+                & img{
+                    float: right;
+                    width: 40%;
+                }
+                & h3{
+                    width: 42%;
+                    margin-top: 0;
+                }
+               
+                & p{
+                    width: 42%;
+                }
+            }
+        }
+    }
+}
+
+@media screen and(max-width:768px){
+    .section-with-tabs{
+        @include title(10vw);
+        @include subtitle(20vw);
+        max-width: 100vw;
+        overflow-x: hidden;
+        &_container{
+            @include indents_vertical(2vw,margin);
+            padding-left: 10vw;
+
+            &_links{
+                display: none;
+            }
+            & .tabs{
+                @include indents_horizontal(0);
+                max-width: 100vw;
+                margin-left: 30vw;
+                background-color: $white_two;
+                box-shadow: none;
+                & .swiper-wrapper{
+                    align-items: stretch;
+                }
+                & .swiper-pagination{
+                    position: relative;
+                    margin-top: 5vw;
+                    margin-left: -10vw;
+
+                    & .swiper-pagination-bullet-active {
+                        background: $greey_tree;
+                    }
+                }
+                &_item{
+                    @include flex(center,center,column);
+                    @include indents_vertical(5vw);
+                    height: 100%;
+                    background-color: $white;
+                    margin-right: 4vw;
+                    & img{
+                        order: 2;
+                        width: 80%;
+                        @include indents_vertical(3vw);
+
+                    }
+                    & h3{
+                        order: 1;
+                        width: 80%;
+                        margin-top: 0;
+                        text-align: center;
+                    }
+                   
+                    & p{
+                        order: 3;   
+                        width: 85%;
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+@media screen and(max-width:576px){
+    .section-with-tabs{
+        @include indents_vertical(11vw);
+        @include title(8vw);
+        @include subtitle(8vw);
+        &_container{
+            margin-top: 7vw;
+            padding-left: 20vw;
+            & .tabs{
+                @include indents_horizontal(0, margin);
+                @include indents_vertical(0);
+                @include indents_horizontal(0);
+                &_item{
+                    margin-left: 1vw;
+                    & img{
+                        width: 85%;
+                        @include indents_vertical(4vw);
+                    }
+                    & h3{
+                        width: 55%;
+                    }
+                    & p{
+                        width: 85%;
+                    }
+                }
+            }
+        }
+    }
+}

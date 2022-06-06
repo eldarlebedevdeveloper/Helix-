@@ -1,0 +1,58 @@
+$blue: #4b94c6;
+$blue_two: #a0c5db;
+$blue_tree: rgb(75, 148, 198, .8);
+$black: #363636;
+$black_two: #383838;
+$black_tree: #4e4e4e;
+$white: #ffffff;
+$white_two: #f4f4f4;
+$white_tree: rgb(216 216 216 / 50%);
+$greey: #ababab;
+$greey_two: #d7d7d7;
+$greey_tree: #9a9a9a;
+$main_shadow: 0 0 2vw 0.3vw $white_tree;
+
+@mixin flex($horizontal: space-between, $vertical: center, $direction: row, $wrap: nowrap) {
+   display: flex;
+   justify-content: $horizontal;
+   align-items: $vertical;
+   flex-direction: $direction;
+   flex-wrap: $wrap;
+}
+@mixin indents_horizontal($indent: 22vw, $type: padding){
+    @if $type == padding{
+        padding-right: $indent;
+        padding-left: $indent;
+    }
+    @if $type == margin{
+        margin-right: $indent;
+        margin-left: $indent;
+    }
+}
+@mixin indents_vertical($indent: 4vw, $type: padding){
+    @if $type == padding{
+        padding-top: $indent;
+        padding-bottom: $indent;
+    }
+    @if $type == margin{
+        margin-top: $indent;
+        margin-bottom: $indent;
+    }
+    
+}
+@mixin title($indent:33vw){
+    &_title{
+        @include indents_horizontal($indent);
+        @include indents_vertical(0, margin);
+        text-align: center;
+    }
+}
+@mixin subtitle($indent:30vw){
+    &_subtitle{
+        @include indents_horizontal($indent);
+        text-align: center;
+    }
+}
+
+
+

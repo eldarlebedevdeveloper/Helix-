@@ -1,0 +1,123 @@
+@import '../repeating.scss';
+.faq{
+    @include indents_vertical;
+    @include title;
+    @include subtitle;
+    &_container{
+        @include flex;
+        @include indents_horizontal;
+        @include indents_vertical;
+    }
+}
+.accordion{
+    width: 42%;
+    &_link{
+        @include flex;
+        border-top: .1vw solid $greey_two;
+        cursor: pointer;
+        &:first-child{
+            border-top: 0;
+        }
+        & span{
+            display: none;
+        }
+        & h4{
+            color: $greey;
+        }
+        & svg{
+            fill: #ababab;
+            transform: rotate(180deg);
+            transition: .3s ease-in;
+            width: 0.9vw;
+            height: 0.9vw;
+        }
+        &[aria-expanded="true"] {
+            & h4{
+                color: $black;
+            }
+            svg{
+                fill: #383838;
+                transform: rotate(360deg);
+            }
+        } 
+    }
+    &_item{
+        & p{
+            margin-top: 0;
+            padding-bottom: 3vw;
+        }
+    }
+}
+.accordion-pictures{
+    width: 45%;
+    background-color: $white;
+    box-shadow: $main_shadow;
+    & img{
+       width: 100%; 
+    }
+}
+
+@media screen and(max-width:768px){
+    .faq{
+        @include title(15vw);
+        @include subtitle(20vw);
+        &_container{
+            @include indents_horizontal(15vw);
+        }
+    }
+    .accordion{
+        width: 100%;
+        &_link{
+            & svg{
+                width: 2vw;
+                height: 2vw;
+            }
+        }
+        &_item{
+            & p{
+                margin-top: 0;
+                padding-bottom: 6vw;
+            }
+            & img{
+                box-shadow: $main_shadow;
+                width: 100%;
+                margin: 0.2vw 0 3vw 0;
+            }
+        }
+    }
+}
+
+@media screen and(max-width:576px){
+    .faq{
+        @include indents_vertical(11vw);
+        @include title(8vw);
+        @include subtitle(8vw);
+    
+        &_container{
+            @include indents_horizontal(10vw);
+        }
+    }
+    .accordion{
+        width: 100%;
+        &_link{
+            & h4{
+                @include indents_vertical(5vw);
+            }
+            & svg{
+                width: 3vw;
+                height: 3vw;
+            }
+        }
+        &_item{
+            & p{
+                margin-top: 0;
+                padding-bottom: 13vw;
+            }
+            & img{
+                box-shadow: $main_shadow;
+                width: 95%;
+                margin: 4vw auto 7vw auto;
+            }
+        }
+    }
+}
